@@ -1,0 +1,5 @@
+aiokafka
+langchain_openai
+qdrant_client
+fastapi
+uvicorn
