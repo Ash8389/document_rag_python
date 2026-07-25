@@ -3,3 +3,4 @@ langchain_openai
 qdrant_client
 fastapi
 uvicorn
+pydantic_settings

@@ -3,17 +3,18 @@ from contextlib import asynccontextmanager
 
 from app.routes.ingest_routes import router as ingest_router
 from app.kafka.create_topic import create_topic
-from app.kafka.config import producer
+from app.kafka.config import start_producer, stop_producer
+
 
 @asynccontextmanager
 async def lifespan(app):
     await create_topic()
 
-    await producer.start()
+    await start_producer()
 
     yield
 
-    await producer.stop()
+    await stop_producer()
 
 app = FastAPI(
     title="ingestion_service",

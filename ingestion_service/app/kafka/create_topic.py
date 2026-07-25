@@ -1,10 +1,11 @@
 from aiokafka.admin import NewTopic, AIOKafkaAdminClient
 
-admin = AIOKafkaAdminClient(
-    bootstrap_servers="localhost:9092"
-)
 
 async def create_topic():
+
+    admin =  AIOKafkaAdminClient(
+        bootstrap_servers="kafka:9092"
+    )
 
     await admin.start()
 

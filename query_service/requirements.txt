@@ -1,6 +1,5 @@
 langchain-community
-pymupdf
-aiokafka
+langchain_openai
 fastapi
 uvicorn
-python-multipart
+qdrant_client
