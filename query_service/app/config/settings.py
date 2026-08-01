@@ -15,6 +15,8 @@ class Settings(BaseSettings) :
     groq_base_url: str
     groq_chat_model: str
 
+    cohere_api_key: str
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

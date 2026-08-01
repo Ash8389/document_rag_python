@@ -6,7 +6,7 @@ from app.repo.vector_repo import VectorRepository
 
 class QdrantRepository(VectorRepository):
 
-    async def search(self, collection_name: str, embedding_vector: list[float], limit: int = 5) -> list[Chunk] :
+    async def search(self, collection_name: str, embedding_vector: list[float], limit: int = 10) -> list[Chunk] :
 
         chunks = []
 

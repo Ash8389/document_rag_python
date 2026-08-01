@@ -3,3 +3,5 @@ langchain_openai
 fastapi
 uvicorn
 qdrant_client
+cohere
+redis

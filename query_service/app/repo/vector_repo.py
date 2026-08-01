@@ -9,6 +9,6 @@ class VectorRepository(ABC) :
         self,
         collection_name: str,
         vector: list[float],
-        limit: int = 5
+        limit: int = 10
     ) -> list[Chunk]:
         pass

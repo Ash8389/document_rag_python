@@ -1,5 +1,6 @@
 from app.repo.qdrant_repo import QdrantRepository
 from app.models.llm_response import LlmResponse
+from app.reranker.cohere import rerank
 from app.config.settings import settings
 from app.processors.embed import embed_text
 from app.chat.openai_chat_model import chat
@@ -13,10 +14,17 @@ class ChatService:
     async def chat_service(self, question):
         embedding_vector = await embed_text(question)
         chunks = await self.repo.search(self.collection_name, embedding_vector)
+
+        contents = [chunk.content for chunk in chunks]
+        # print(len(chunks))
+        
+        reranked = rerank(question=question, chunks=contents)
+        print(reranked)
+
         context = []
 
-        for chunk in chunks :
-            context.append(chunk.content)
+        for res in reranked.results:
+            context.append(chunks[res.index].content)
 
         result = chat(question=question, context=context)
         return LlmResponse(
@@ -26,4 +34,3 @@ class ChatService:
             output_tokens=result.usage_metadata["output_tokens"],
             total_tokens=result.usage_metadata["total_tokens"]
         )
-
