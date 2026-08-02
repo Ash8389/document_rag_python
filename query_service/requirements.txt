@@ -1,5 +1,6 @@
 langchain-community
 langchain_openai
+langchain_redis
 fastapi
 uvicorn
 qdrant_client

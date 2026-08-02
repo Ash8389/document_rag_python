@@ -1,6 +1,6 @@
 import json, asyncio
 
-from app.kafka.get_kafka_consumer import consumer
+from app.kafka import get_kafka_consumer
 # from app.qdrant.insert_chunks import insert_chunks
 from app.services.embedding_service import embedding_service
 
@@ -9,7 +9,7 @@ async def consume_chunks():
 
     chunks = []
 
-    async for msg in consumer:
+    async for msg in get_kafka_consumer.consumer:
         event = json.loads(msg.value)
 
         if event["content"]=="END" :

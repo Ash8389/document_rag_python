@@ -1,6 +1,6 @@
 import json
 
-from app.kafka.config import producer
+from app.kafka import config
 
 async def produce(chunks):
     
@@ -11,12 +11,12 @@ async def produce(chunks):
             "metadata": chunk.metadata
         }
 
-        await producer.send_and_wait(
+        await config.producer.send_and_wait(
             "document.chunks",
             json.dumps(message).encode()
         )
 
-    await producer.send(
+    await config.producer.send(
             "document.chunks",
              json.dumps({"content": "END"}).encode()
         )
