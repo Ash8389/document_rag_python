@@ -14,7 +14,7 @@ router = APIRouter(
 @router.post("/pdf")
 async def ingest_pdf(file : UploadFile = File(...)):
 
-    # os.makedirs("document", exist_ok=True)
+    os.makedirs("document", exist_ok=True)
 
     file_path = os.path.join("document", file.filename)
 
