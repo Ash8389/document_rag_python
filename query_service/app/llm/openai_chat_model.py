@@ -4,7 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 from langchain_redis import RedisChatMessageHistory
 
-from app.chat.chat_model import ChatModel
+from app.llm.chat_model import ChatModel
 from app.config.settings import settings
 
 

@@ -2,8 +2,8 @@ from app.repo.qdrant_repo import QdrantRepository
 from app.models.llm_response import LlmResponse
 from app.reranker.cohere import rerank
 from app.config.settings import settings
-from app.processors.embed import embed_text
-from app.chat.openai_chat_model import OpenAiChatModel
+from app.embeddings.embed import embed_text
+from app.llm.openai_chat_model import OpenAiChatModel
 from app.redis.redis import RedisClient
 
 
